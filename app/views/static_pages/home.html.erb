@@ -1,16 +1,16 @@
 <h1>StaticPages#home</h1>
 <p>Find me in app/views/static_pages/home.html.erb</p>
-<p id="make-request">Make request</p>
 
-<script>
-  document.querySelector('#make-request').addEventListener('click', () => {
-    fetch('https://api.github.com/notifications', {
-        headers: {
-            Accept: "application/vnd.github+json",
-            Authorization: "token <%= current_user.nil? ? '' : current_user.token %>"
-        }
-      })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-  })
-</script>
+<div data-controller="hello"
+     data-hello-token="<%=current_user.nil? ? '' : current_user.token%>"
+     >
+  <input data-hello-target="name" type="text">
+
+  <button data-action="click->hello#greet">
+    Greet
+  </button>
+
+  <span data-hello-target="output">
+  </span>
+</div>
+
