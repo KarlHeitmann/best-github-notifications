@@ -18,4 +18,8 @@ class User < ApplicationRecord
     end
     user
   end
+
+  def token
+    extra['credentials']['token']
+  end
 end
