@@ -1,0 +1,26 @@
+<tr>
+  <td><%= notification["id"] %></td>
+  <td>unread: <%= notification["unread"] %></td>
+  <td><%= notification["reason"] %></td>
+  <td><%= notification["updated_at"] %></td>
+  <td><%= notification["last_read_at"] %></td>
+  <td>
+    <ul>
+      <li><strong>Title: </strong><%= notification["subject"]["title"] %></li>
+      <li><strong>URL: </strong><%= notification["subject"]["url"] %></li>
+      <li><strong>Latest comment url: </strong><%= notification["subject"]["latest_comment_url"] %></li>
+      <li><strong>Type: </strong><%= notification["subject"]["type"] %></li>
+    </ul>
+  </td>
+  <td>
+    <ul>
+      <% notification["repository"].each do |k, v| %>
+        <li><strong><%= k %>: </strong><%= v %></li>
+      <% end %>
+    </ul>
+  </td>
+  <td><%= notification["url"] %></td>
+  <td><%= notification["subscription_url"] %></td>
+  <td>--<%= notification["subscribe"] %>--</td>
+  <td><%#= notification[] %></td>
+</tr>

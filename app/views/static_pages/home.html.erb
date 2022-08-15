@@ -14,3 +14,28 @@
   </span>
 </div>
 
+<%= debug @notifications.first.keys %>
+
+<table>
+
+  <thead>
+    <tr>
+      <td>id</td>
+      <td>unread</td>
+      <td>reason</td>
+      <td>updated_at</td>
+      <td>last_read_at</td>
+      <td>subject</td>
+      <td>repository</td>
+      <td>url</td>
+      <td>subscription_url</td>
+      <td>--subscribe--</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @notifications.each do |notification| %>
+      <%= render partial: "notification", locals: { notification: notification } %>
+    <% end %>
+  </tbody>
+</table>
+
