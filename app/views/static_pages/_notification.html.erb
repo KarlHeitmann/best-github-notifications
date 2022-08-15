@@ -5,10 +5,14 @@
   <td><%= notification["updated_at"] %></td>
   <td><%= notification["last_read_at"] %></td>
   <td>
-    <ul>
+    <ul
+      data-controller="subject"
+      data-subject-token="<%=current_user.nil? ? '' : current_user.token%>"
+      data-subject-url="<%= notification["subject"]["url"] %>"
+      >
       <li><strong>Title: </strong><%= notification["subject"]["title"] %></li>
-      <li><strong>URL: </strong><%= notification["subject"]["url"] %></li>
-      <li><strong>Latest comment url: </strong><%= notification["subject"]["latest_comment_url"] %></li>
+      <li data-action="click->subject#fetchData"><strong>URL: </strong><%= notification["subject"]["url"] %></li>
+      <li data-subject-target="url"><strong>Latest comment url: </strong><%= notification["subject"]["latest_comment_url"] %></li>
       <li><strong>Type: </strong><%= notification["subject"]["type"] %></li>
     </ul>
   </td>
